@@ -10,12 +10,6 @@
 	border: 1px solid red;
 }*/
 
-nav {
-  background-color: $primary-background;
-  color: white;
-  height: 140px;
-}
-
 /*main {
 	width: 100%;
 	height: 90vh;
@@ -23,27 +17,83 @@ nav {
 
 .main_question-section {
 	width: 100%;
-	height: 30vh;
-	/*height: 25vh;*/
-  background-color: orange;
-	display: block;
+  height: 15vh;
+  background-color: #ffffff;
+  color: #1181b2;
+  font-family: $primary_font;
+  font-size: 36px;
+  font-weight: 700;
+  display: block;
 }
 
 .main_p1-section {
-	width: 50%;
-	height: 90vh;
-	background-color: green;
-	float: left;
-	display: inline-block;
+  width: 50%;
+  height: 40vh;
+  background-color: #212221;
+  font-family: "Open Sans", sans-serif;
+  color: #ddedf4;
+  font-size: 18px;
+  float: left;
+  border: 1 solid #1a2930;
+  display: flex;
+  justify-content: center;
 }
 
 .main_p2-section {
-	width: 49%;
-	height: 90vh;
-	background-color: pink;
-	float: right;
-	display: inline-block;
+	width: 50%;
+  height: 40vh;
+  background-color: #212221;
+  font-family: "Open Sans", sans-serif;
+  color: #ddedf4;
+  font-size: 18px;
+  float: left;
+  border: 1 solid #1a2930;
+  display: flex;
+  justify-content: center;
 }
 
+.main_answer-section {
+	width: 100%;
+	height: 38vh;
+	background-color: #1181b2;
+	padding: 3% 0;
+}
 
+.answer_container {
+	width: 365px;
+	height: 45px;
+	background: #ddedf4;
+	margin: 2% auto;
+}
 
+.score-box {
+	width: 365px;
+	height: 45px;
+	/*background: #ddedf4;*/
+}
+
+.player_score-text {
+	font-family: $primary_font;
+  font-size: 24px;
+  font-weight: 700;
+  color: #1181b2; 
+}
+
+.guess_input {
+	width: 365px;
+	height: 45px;
+	background: #ddedf4;
+	margin: 2% auto;
+}
+
+.guess_button {
+	width: 365px;
+	height: 45px;
+	background: #44449b;
+	font-family: $primary_font;
+	color: #ddedf4;
+	margin: 2% auto;
+	border: none;
+	font-size: 18px;
+
+}

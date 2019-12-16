@@ -34,7 +34,12 @@ module.exports = {
   // Below is needed for webpack-dev-server
   plugins: [
     new HtmlWebpackPlugin({
+      filename: 'index.html',
       template: './src/index.html'
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'player-log.html',
+      template: './src/player-log.html'
     })
   ],
   devServer: {

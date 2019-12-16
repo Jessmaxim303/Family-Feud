@@ -16,17 +16,20 @@ import data from "./game-data";
 
 
 // console.log('This is the JavaScript entry file - your code begins here.');
-console.log(data)
+// console.log(data)
 $(".main_login").show();
 $(".main_section").hide();
 
 // $(".main_login").hide();
 // $(".main_section").show();
-
-$("main-login-submit").click(showGameBoard);
-
 const showGameBoard = () => {
-  if ($("1_guess-input").val && $("2_guess-input").val) {
+  console.log("helooo")
+  if ($("main_p1-log").val && $("main_p2-log").val) {
+    $(".main_login").hide();
     $(".main_section").show();
+
+    $(".p1_name").text($(.main_p1-log).val());
   };
 };
+
+$(".main-login-submit").click(showGameBoard);

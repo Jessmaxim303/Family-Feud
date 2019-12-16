@@ -8,7 +8,11 @@ class Game {
   }
 
   returnWinner() {
-
+    if(player1.score > player2.score) {
+      return player1;
+    } else {
+      return this.player2;
+    }
   }
 
   fastMoney() {
@@ -19,8 +23,9 @@ class Game {
 
   }
 
-  createPlayer() {
-
+  createPlayers() {
+    this.player1 = new Player(name);
+    this.player2 = new Player(name);
   }
 }
 

@@ -72,3 +72,6 @@ const data = {
     { answer: 'Wrap It', respondents: 61, surveyId: 2 }
   ]
 };
+
+
+export default data;

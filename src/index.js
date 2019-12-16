@@ -23,3 +23,10 @@ $(".main_section").hide();
 // $(".main_login").hide();
 // $(".main_section").show();
 
+$("main-login-submit").click(showGameBoard);
+
+const showGameBoard = () => {
+  if ($("1_guess-input").val && $("2_guess-input").val) {
+    $(".main_section").show();
+  };
+};

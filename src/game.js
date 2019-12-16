@@ -9,7 +9,7 @@ class Game {
 
   returnWinner() {
     if(player1.score > player2.score) {
-      return player1;
+      return this.player1;
     } else {
       return this.player2;
     }

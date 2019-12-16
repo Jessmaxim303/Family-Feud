@@ -9,17 +9,24 @@ import './css/base.scss';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png';
-import './game';
-// import './game-data';
+import Game from './game';
+import data from './game-data';
 
-import data from "./game-data";
+const getData = () => {
+  fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data")
+    .then(response => response.json())
+    .then(data => useData(data))
+    .catch(error => console.log(error));
+}
 
+const useData = (data) => {
+  const gameData = data.data;
+}
 
+window.load(getData);
 // console.log('This is the JavaScript entry file - your code begins here.');
-console.log(data)
 $(".main_login").show();
 $(".main_section").hide();
 
 // $(".main_login").hide();
 // $(".main_section").show();
-

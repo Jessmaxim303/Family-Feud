@@ -95,5 +95,53 @@
 	margin: 2% auto;
 	border: none;
 	font-size: 18px;
-
 }
+
+.main-login-submit {
+	width: 365px;
+	height: 45px;
+	background: #44449b;
+	font-family: $primary_font;
+	color: #ddedf4;
+	margin: 2% auto;
+	border: none;
+	font-size: 18px;
+}
+
+.main_login {
+	width: 100%;
+	height: 100vh;
+	font-family: $primary_font;
+	font-size: 28px;
+}
+
+.main_login-container {
+	width: 100%;
+	height: 100vh;
+	background: #ddedf4;
+	display: grid;
+	justify-content: center;
+	align-content: center;
+}
+
+.main_login-box {
+	height: 25vh;
+	background: #1181b2;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-direction: column;
+}
+
+.main_login-name {
+	display: flex;
+	flex-direction: row;
+}
+
+.name_input {
+	width: 225px;
+	height: 45px;
+	background: #ddedf4;
+	margin: 2% auto;
+}
+

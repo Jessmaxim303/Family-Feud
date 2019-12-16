@@ -1,6 +1,6 @@
 class Round {
   constructor(survey, player1, player2) {
-    this.survey = [{}]
+    this.survey = survey
     this.surveyId = survey.id
     this.question = survey.question;
     this.answers = [];

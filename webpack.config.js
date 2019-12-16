@@ -36,10 +36,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './src/index.html'
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'player-log.html',
-      template: './src/player-log.html'
     })
   ],
   devServer: {

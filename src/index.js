@@ -17,18 +17,9 @@ import data from "./game-data";
 
 // console.log('This is the JavaScript entry file - your code begins here.');
 console.log(data)
+$(".main_login").show();
+$(".main_section").hide();
 
-// $('.main-login-submit').on('click', function() {
-// 	if ($('.main_p1-log').text != '') {
-//     window.location = "./index.html";
-//   } else {
-//     window.location = "./src/player-log.html";
-//   }
-// })
+// $(".main_login").hide();
+// $(".main_section").show();
 
-// $('form input[type!=submit]').each(function(){
-//    //If the field's empty
-//    if($(this).val() != '')
-//    {
-
-window.location = "./src/player-log.html"

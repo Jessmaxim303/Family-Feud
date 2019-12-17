@@ -1,3 +1,6 @@
+import Player from "./Player";
+import Round from "./Round";
+
 class Game {
   constructor() {
     this.player1 = {};
@@ -19,14 +22,17 @@ class Game {
 
   }
 
-  createRound() {
-
-  }
 
   createPlayers() {
     this.player1 = new Player(name);
     this.player2 = new Player(name);
   }
+
+  createRound(data) {
+    const round = new Round(data, this.player1, this.player2)
+    return round
+  }
+
 }
 
 

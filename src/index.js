@@ -11,6 +11,7 @@ import './css/base.scss';
 import './images/turing-logo.png';
 import Game from './game';
 import data from './game-data';
+// console.log('This is the JavaScript entry file - your code begins here.');
 
 const getData = () => {
   fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data")
@@ -24,9 +25,17 @@ const useData = (data) => {
 }
 
 window.load(getData);
-// console.log('This is the JavaScript entry file - your code begins here.');
-$(".main_login").show();
-$(".main_section").hide();
 
-// $(".main_login").hide();
-// $(".main_section").show();
+$(".main_login").hide();
+$(".main_section").show();
+
+const showGameBoard = () => {
+  if ($("main_p1-log").val && $("main_p2-log").val) {
+    $(".main_login").hide();
+    $(".main_section").show();
+
+    $(".p1_name").text($(.main_p1-log).val());
+  };
+};
+
+$(".main-login-submit").click(showGameBoard);

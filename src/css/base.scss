@@ -10,11 +10,6 @@
 	border: 1px solid red;
 }*/
 
-/*main {
-	width: 100%;
-	height: 90vh;
-}*/
-
 .main_question-section {
 	width: 100%;
   height: 15vh;
@@ -100,7 +95,7 @@
 .main-login-submit {
 	width: 365px;
 	height: 45px;
-	background: #44449b;
+	background: #97ce4c;
 	font-family: $primary_font;
 	color: #ddedf4;
 	margin: 2% auto;
@@ -109,7 +104,7 @@
 }
 
 .main_login {
-  background: linear-gradient( rgba(255, 255, 255, .5), rgba(255, 255, 255, 0.5)), url(./images/blood-dome.jpg);
+  background: linear-gradient( rgba(255, 255, 255, .5), rgba(255, 255, 255, 0.5)), url(../images/blood_dome.jpg);
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
@@ -117,29 +112,17 @@
 	width: 100%;
 	font-family: $primary_font;
 	font-size: 28px;
-
 }
 
 .main_login-container {
-	// width: 100%;
-	// height: 100vh;
-	background: #ddedf4;
 	display: grid;
 	justify-content: center;
 	align-content: center;
 }
 
 .main_login-box {
-	// height: 25vh;
-	background: #1181b2;
-	// display: flex;
-	// justify-content: center;
-	// align-content: center;
-	// flex-direction: column;
-	// display: flex;
-	// justify-content: space-around;
-	padding: 10%;
-	padding-left: 15%;
+	padding-top: 15%;
+	padding-left: 13%;
 }
 
 .main_login-name {
@@ -152,13 +135,36 @@
 .name_input {
 	width: 225px;
 	height: 45px;
-	background: #ddedf4;
 	margin: 2% auto;
+	border: 1px solid black;
+	box-shadow: 4px 4px 4px gray;
+	border-radius: 5px;
 }
 
 .main-login-submit {
-	width: 170px;
-	height: 170px;
+	font-family: 'Girassol', cursive;
+	font-family: 'Bangers', cursive;
+	width: 160px;
+	height: 160px;
 	border-radius: 100%;
-	margin-top: 10%;
+	color: white;
+	text-decoration: none;
+	background-color: #97ce4c;
+	font-size: 1.5em;
+	box-shadow: 0px 6px 0px #28a428 , 0px 9px 25px rgba(0,0,0,.7);
+	text-shadow: 2px 2px black;
+	border: 1px solid black;
+}
+
+h1 {
+	font-family: 'Girassol', cursive;
+	font-family: 'Bangers', cursive;
+	text-align: center;
+	font-size: 90px;
+	text-shadow: 2px 2px #97ce4c;
+}
+
+.main_challanger-label {
+	font-size: 15px;
+	font-weight: 700;
 }

@@ -13,23 +13,46 @@ import './game';
 // import './game-data';
 
 import data from "./game-data";
-
+import Game from "./Game";
+import Round from "./Round";
+import Player from "./Player";
 
 // console.log('This is the JavaScript entry file - your code begins here.');
 // console.log(data)
 $(".main_login").show();
 $(".main_section").hide();
 
-// $(".main_login").hide();
-// $(".main_section").show();
 const showGameBoard = () => {
-  console.log("helooo")
   if ($("main_p1-log").val && $("main_p2-log").val) {
     $(".main_login").hide();
     $(".main_section").show();
-
-    $(".p1_name").text($(.main_p1-log).val());
+    $(".p1_name").text($(".main_p1-log").val());
+    $(".p2_name").text($(".main_p2-log").val());
   };
 };
 
 $(".main-login-submit").click(showGameBoard);
+
+const receiveData = () => {
+  fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data")
+    .then(data => data.json())
+    return data
+}
+
+const startGame = () => {
+  const game = new Game(data)
+  const round = new Round(data)
+  game.createPlayers()
+  game.createRound(data)
+  $(".main_question-section").text(round.randomSurveyQuestion()[0].question)
+  round.getAnswerById().forEach(answer => {
+    $(".main_answer-section").append(
+      `<section class="answer_container">
+            <h3>${answer.answer}</h3>
+       </section>`);
+  });
+}
+
+startGame()
+
+

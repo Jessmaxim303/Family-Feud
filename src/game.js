@@ -30,8 +30,7 @@ class Game {
 
   createRound(data) {
     const round = new Round(data, this.player1, this.player2)
-    console.log(round)
-    // round.randomSurveyQuestion()
+    return round
   }
 
 }

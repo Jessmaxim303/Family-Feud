@@ -41,9 +41,8 @@ const receiveData = () => {
 
 const startGame = () => {
   const game = new Game(data)
-  const round = new Round(data)
   game.createPlayers()
-  game.createRound(data)
+  let round = game.createRound(data)
   $(".main_question-section").text(round.randomSurveyQuestion()[0].question)
   round.getAnswerById().forEach(answer => {
     $(".main_answer-section").append(

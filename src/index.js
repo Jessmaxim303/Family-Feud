@@ -24,7 +24,7 @@ $(".main_login").show();
 $(".main_section").hide();
 
 const showGameBoard = () => {
-  if ($("main_p1-log").val && $("main_p2-log").val) {
+  if ($("main_p1-log").val() && $("main_p2-log").val()) {
     $(".main_login").hide();
     $(".main_section").show();
     $(".p1_name").text($(".main_p1-log").val());

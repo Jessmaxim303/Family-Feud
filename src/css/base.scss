@@ -139,13 +139,15 @@
 	border: 1px solid black;
 	box-shadow: 4px 4px 4px gray;
 	border-radius: 5px;
+	padding-left: 5px;
+	font-size: 17px;
 }
 
 .main-login-submit {
 	font-family: 'Girassol', cursive;
 	font-family: 'Bangers', cursive;
-	width: 160px;
-	height: 160px;
+	width: 140px;
+	height: 140px;
 	border-radius: 100%;
 	color: white;
 	text-decoration: none;
@@ -165,6 +167,6 @@ h1 {
 }
 
 .main_challanger-label {
-	font-size: 15px;
+	font-size: 17px;
 	font-weight: 700;
 }

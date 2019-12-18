@@ -9,33 +9,58 @@ import './css/base.scss';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png';
-import Game from './game';
-import data from './game-data';
 // console.log('This is the JavaScript entry file - your code begins here.');
 
-const getData = () => {
-  fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data")
-    .then(response => response.json())
-    .then(data => useData(data))
-    .catch(error => console.log(error));
-}
+import data from "./game-data";
+import Game from "./Game";
+import Round from "./Round";
+import Player from "./Player";
 
-const useData = (data) => {
-  const gameData = data.data;
-}
-
-window.load(getData);
-
-$(".main_login").hide();
-$(".main_section").show();
+// console.log('This is the JavaScript entry file - your code begins here.');
+// console.log(data)
+$(".main_login").show();
+$(".main_section").hide();
 
 const showGameBoard = () => {
-  if ($("main_p1-log").val && $("main_p2-log").val) {
+  if ($(".main_p1-log").val() && $(".main_p2-log").val()) {
     $(".main_login").hide();
     $(".main_section").show();
-
-    $(".p1_name").text($(.main_p1-log).val());
+    $(".p1_name").text("Rick '" + $(".main_p1-log").val() + "' Sanchez");
+    $(".p2_name").text("Morty '" + $(".main_p2-log").val() + "' Smith");
   };
 };
 
+$(".main-login-submit").click(showGameBoard);
+
+const receiveData = () => {
+  fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data")
+    .then(data => data.json())
+    return data;
+};
+let round;
+const startGame = () => {
+  const game = new Game(data);
+  game.createPlayers();
+  round = game.createRound(data);
+  $(".main_question-section").text(round.randomSurveyQuestion()[0].question)
+  round.getAnswerById().forEach(answer => {
+    $(".main_answer-section").append(
+      `<section id="${answer.surveyId}" class="answer_container">
+            <h3 class="answer_container-text">${answer.answer}</h3>
+            <h3 class="answer_container-text">${answer.respondents}</h3>
+       </section>`);
+  });
+}
+
+const getGuess = (guess) => {
+  console.log('workin');
+  if(typeof round.checkQuestion(guess) === 'number') {
+    console.log('workin right');
+    //grab the id on the dom and apply new class
+    $(`#${round.checkQuestion(guess)}`).addClass("flip_answer");
+  };
+};
+
+startGame();
+$(".p2_guess-button").click(getGuess($(".p2_guess-input").val()));
 $(".main-login-submit").click(showGameBoard);

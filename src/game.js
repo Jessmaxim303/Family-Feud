@@ -1,3 +1,7 @@
+import Player from "./Player";
+import Round from "./Round";
+import $ from 'jquery';
+
 class Game {
   constructor() {
     this.player1 = {};
@@ -19,14 +23,17 @@ class Game {
 
   }
 
-  createRound() {
-
-  }
 
   createPlayers() {
-    this.player1 = new Player(name);
-    this.player2 = new Player(name);
+    this.player1 = new Player($('.main_p1-log').val());
+    this.player2 = new Player($('.main_p2-log').val());
   }
+
+  createRound(data) {
+    const round = new Round(data, this.player1, this.player2);
+    return round;
+  }
+
 }
 
 

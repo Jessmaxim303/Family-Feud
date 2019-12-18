@@ -12,7 +12,7 @@ import './images/turing-logo.png';
 import './game';
 // import './game-data';
 
-import data from "./game-data";
+// import data from "./game-data";
 import Game from "./Game";
 import Round from "./Round";
 import Player from "./Player";
@@ -33,13 +33,7 @@ const showGameBoard = () => {
 
 $(".main-login-submit").click(showGameBoard);
 
-const receiveData = () => {
-  fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data")
-    .then(data => data.json())
-    return data
-}
-
-const startGame = () => {
+const startGame = (data) => {
   const game = new Game(data)
   game.createPlayers()
   let round = game.createRound(data)
@@ -52,6 +46,12 @@ const startGame = () => {
   });
 }
 
-startGame()
+const receiveData = () => {
+  fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data")
+    .then(response => response.json())
+    .then(data => startGame(data.data))
+}
+
+receiveData()
 
 

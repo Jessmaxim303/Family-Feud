@@ -104,10 +104,20 @@ button {
 	padding-top: 2%;
 }
 
+.answer_container-text {
+	background-color: #FFF;
+	color: black;
+	text-align: center;
+}
+
+.flip_answer {
+	transform: scaleY(-1);
+}
+
 .score-box {
 	width: 365px;
 	height: 45px;
-	
+
 }
 
 .player_score-text {
@@ -117,7 +127,7 @@ button {
 	font-family: 'Press Start 2P', cursive;
   font-size: 24px;
   font-weight: 700;
-	color: #1181b2; 
+	color: #1181b2;
 	text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 	margin-top: 3px;
 }

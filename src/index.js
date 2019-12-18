@@ -7,11 +7,12 @@ import $ from 'jquery';
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
 
+
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png';
 // console.log('This is the JavaScript entry file - your code begins here.');
 
-import data from "./game-data";
+// import data from "./game-data";
 import Game from "./Game";
 import Round from "./Round";
 import Player from "./Player";
@@ -32,16 +33,10 @@ const showGameBoard = () => {
 
 $(".main-login-submit").click(showGameBoard);
 
-const receiveData = () => {
-  fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data")
-    .then(data => data.json())
-    return data;
-};
-let round;
-const startGame = () => {
-  const game = new Game(data);
-  game.createPlayers();
-  round = game.createRound(data);
+const startGame = (data) => {
+  const game = new Game(data)
+  game.createPlayers()
+  let round = game.createRound(data)
   $(".main_question-section").text(round.randomSurveyQuestion()[0].question)
   round.getAnswerById().forEach(answer => {
     $(".main_answer-section").append(
@@ -52,6 +47,7 @@ const startGame = () => {
   });
 }
 
+
 const getGuess = (guess) => {
   console.log('workin');
   if(typeof round.checkQuestion(guess) === 'number') {
@@ -60,6 +56,15 @@ const getGuess = (guess) => {
     $(`#${round.checkQuestion(guess)}`).addClass("flip_answer");
   };
 };
+
+const receiveData = () => {
+  fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data")
+    .then(response => response.json())
+    .then(data => startGame(data.data))
+}
+
+receiveData()
+
 
 startGame();
 $(".p2_guess-button").click(getGuess($(".p2_guess-input").val()));

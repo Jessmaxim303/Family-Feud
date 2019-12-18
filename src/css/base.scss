@@ -6,89 +6,153 @@
 	margin: 0;
 }
 
+button {
+	cursor: pointer;
+}
+
 /** {
 	border: 1px solid red;
 }*/
 
 .main_question-section {
-	width: 100%;
-  color: #1181b2;
+	// width: 100%;
+  color: #1181b2;;
   font-family: $primary_font;
-  font-size: 32px;
-  font-weight: 700;
-	border: 1px solid black;
+  font-size: 30px;
+  // font-weight: 700;
+	border: 10px double #00008b;
 	text-align: center;
+	padding: 1% 0%;
+	background-color: #f0e14a;
+	border-radius: 10px;
+	font-family: 'Girassol', cursive;
+	font-family: 'Bangers', cursive;
+	font-family: 'Press Start 2P', cursive;
+	text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+	box-shadow: 8px 8px 8px gray;
 }
 
 .main_p1-section {
   width: 50%;
-  height: 40vh;
+  // height: 40vh;
   font-family: "Open Sans", sans-serif;
-  color: #ddedf4;
+  color: black;
   font-size: 18px;
   float: left;
   border: 1 solid #1a2930;
   display: flex;
-  justify-content: center;
+	justify-content: center;
+	border-radius: 5px;
+	padding-top: 5%;
+	font-family: 'Girassol', cursive;
+	font-family: 'Bangers', cursive;
+	font-family: 'Press Start 2P', cursive;
+	text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 }
 
 .main_p2-section {
 	width: 50%;
-  height: 40vh;
+  // height: 40vh;
   // background-color: #212221;
   font-family: "Open Sans", sans-serif;
-  color: #ddedf4;
+  color: black;
   font-size: 18px;
   float: left;
   border: 1 solid #1a2930;
   display: flex;
-  justify-content: center;
+	justify-content: center;
+	border-radius: 5px;
+	padding-top: 4%;
+	font-family: 'Girassol', cursive;
+	font-family: 'Bangers', cursive;
+	font-family: 'Press Start 2P', cursive;
+	text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 }
 
 .main_section {
-	background: linear-gradient( rgba(255, 255, 255, .5), rgba(255, 255, 255, 0.5)), url(../images/rm.jpg);
+	background: linear-gradient( rgba(255, 255, 255, .5), rgba(255, 255, 255, 0.5)), url(../images/8bit.jpg);
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
 	height: 100vh;
 	padding: 2%;
+
+	// border: 27px dotted #f0e14a;
 }
 
 .answer_container {
-	width: 365px;
-	height: 45px;
-	background: #ddedf4;
-	margin: 2% auto;
+	width: 320px;
+	height: 30px;
+	// background-color: rgba(255,255,0,0.5);
+	background: rgba(212,229,255,0.9);
+	border: 5px double #00008b;
+	margin: 10px auto;
+	border-radius: 10px;
+	// font-family: 'Girassol', cursive;
+	// font-family: 'Bangers', cursive;
+	// font-family: 'Press Start 2P', cursive;
+	// font-family: 'Share Tech Mono', monospace;
+	font-family: 'Girassol', cursive;
+	font-family: 'Bangers', cursive;
+	font-family: 'Press Start 2P', cursive;
+	text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+	padding: 1%;
+	box-shadow: 5px 5px 5px gray;
+}
+
+.main_answer-section {
+	padding-top: 2%;
 }
 
 .score-box {
 	width: 365px;
 	height: 45px;
+	
 }
 
 .player_score-text {
-	font-family: $primary_font;
+	// font-family: $primary_font;
+	font-family: 'Girassol', cursive;
+	font-family: 'Bangers', cursive;
+	font-family: 'Press Start 2P', cursive;
   font-size: 24px;
   font-weight: 700;
-  color: #1181b2; 
+	color: #1181b2; 
+	text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+	margin-top: 3px;
 }
 
 .guess_input {
-	width: 365px;
-	height: 45px;
-	background: #ddedf4;
+	width: 352px;
+	height: 34px;
+	font-size: 17px;
+	background: #f0e14a;
 	margin: 2% auto;
+	border-radius: 10px;
+	border: 3px solid #00008b;
+	padding: 1%;
+	box-shadow: 4px 4px 4px gray;
+	font-family: 'Girassol', cursive;
+	font-family: 'Bangers', cursive;
+	font-family: 'Press Start 2P', cursive;
+	font-family: 'Share Tech Mono', monospace;
 }
 
 .guess_button {
 	width: 365px;
 	height: 45px;
-	background: #44449b;
+	background: #97ce4c;
 	font-family: $primary_font;
-	color: #ddedf4;
+	color: black;
 	margin: 2% auto;
-	border: none;
+	border: 3px solid #00008b;
 	font-size: 18px;
+	border-radius: 10px;
+	font-family: 'Girassol', cursive;
+	font-family: 'Bangers', cursive;
+	font-family: 'Press Start 2P', cursive;
+	text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+	box-shadow: 4px 4px 4px gray;
 }
 
 .main-login-submit {
@@ -140,6 +204,10 @@
 	border-radius: 5px;
 	padding-left: 5px;
 	font-size: 17px;
+	font-family: 'Girassol', cursive;
+	font-family: 'Bangers', cursive;
+	font-family: 'Press Start 2P', cursive;
+	font-family: 'Share Tech Mono', monospace;
 }
 
 .main-login-submit {
@@ -168,4 +236,8 @@
 .main_challanger-label {
 	font-size: 17px;
 	font-weight: 700;
+	font-family: 'Girassol', cursive;
+	font-family: 'Bangers', cursive;
+	font-family: 'Press Start 2P', cursive;
+	font-family: 'Share Tech Mono', monospace;
 }

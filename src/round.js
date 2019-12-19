@@ -19,17 +19,9 @@ class Round {
   }
 
   checkQuestion(guess) {
-    // console.log('workin still');
-    this.answers.find(answer => {
-      if(answer.answer.toLowerCase() === guess.toLowerCase()) {
-        // console.log('still workin');
-        // console.log(answer.surveyId);
-        return answer.surveyId;
-      } else {
-        return false;
-      }
-    })
+    return this.answers.find(answer => answer.answer.toLowerCase().split(' ').join('') === guess);
   }
+
 
   returnFeedback() {
 

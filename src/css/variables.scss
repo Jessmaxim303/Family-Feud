@@ -1,7 +1,9 @@
-$primary_background: lightblue;
+
 $primary_font: 'Open Sans', sans-serif;
-$primary_weight: 700;
-$primary_question_font_size: 36px;
-$text-color: #ffffff;
-$primary_nav: orange;
-$body_background_color: #EAEBEF;
+$primary_gameboard_font: 'Press Start 2P', cursive; 
+$secondary_gameboard_font: 'Share Tech Mono', monospace;
+
+$primary_background: #f0e14a;
+$primary_box_shadow: 4px 4px 4px gray;
+$primary_text_shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+$primary_welcome_page_font: 'Bangers', cursive;

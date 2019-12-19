@@ -1,26 +1,10 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
-
-// An example of how you import jQuery into a JS file if you use jQuery in that file
 import $ from 'jquery';
 
-// An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
 
-
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png';
-// console.log('This is the JavaScript entry file - your code begins here.');
-
-// import data from "./game-data";
-import Game from "./Game";
-import Round from "./Round";
-import Player from "./Player";
-
-// console.log('This is the JavaScript entry file - your code begins here.');
-// console.log(data)
-$(".main_login").show();
-$(".main_section").hide();
+import Game from "./game";
+import Round from "./round";
+import Player from "./player";
 
 const showGameBoard = () => {
   if ($(".main_p1-log").val() && $(".main_p2-log").val()) {
@@ -46,7 +30,6 @@ const startGame = (data) => {
        </section>`);
   });
 }
-
 
 const getGuess = (guess) => {
   if(round.checkQuestion(guess)) {

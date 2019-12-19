@@ -1,4 +1,3 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
 @import 'variables';
 
 * {
@@ -10,104 +9,57 @@ button {
 	cursor: pointer;
 }
 
-/** {
-	border: 1px solid red;
-}*/
-
 .main_question-section {
-	// width: 100%;
-  color: #1181b2;;
-  font-family: $primary_font;
-  font-size: 30px;
-  // font-weight: 700;
+  color: #1181b2;
+	background-color: $primary_background;
 	border: 10px double #00008b;
-	text-align: center;
-	padding: 1% 0%;
-	background-color: #f0e14a;
 	border-radius: 10px;
-	font-family: 'Girassol', cursive;
-	font-family: 'Bangers', cursive;
-	font-family: 'Press Start 2P', cursive;
-	text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 	box-shadow: 8px 8px 8px gray;
+  font-family: $primary_font;
+	font-family: $primary_gameboard_font;
+  font-size: 30px;
+	padding: 1% 0%;
+	text-align: center;
+	text-shadow: $primary_text_shadow;
 }
 
-.main_p1-section {
-  width: 50%;
-  // height: 40vh;
-  font-family: "Open Sans", sans-serif;
-  color: black;
-  font-size: 18px;
-  float: left;
+.p-section {
   border: 1 solid #1a2930;
-  display: flex;
-	justify-content: center;
 	border-radius: 5px;
+  color: black;
+	display: flex;
+	float: left;
+  font-family: "Open Sans", sans-serif;
+	font-family: $primary_gameboard_font;
+  font-size: 18px;
+	justify-content: center;
 	padding-top: 5%;
-	font-family: 'Girassol', cursive;
-	font-family: 'Bangers', cursive;
-	font-family: 'Press Start 2P', cursive;
-	text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
-}
-
-.main_p2-section {
+	text-shadow: $primary_text_shadow;
 	width: 50%;
-  // height: 40vh;
-  // background-color: #212221;
-  font-family: "Open Sans", sans-serif;
-  color: black;
-  font-size: 18px;
-  float: left;
-  border: 1 solid #1a2930;
-  display: flex;
-	justify-content: center;
-	border-radius: 5px;
-	padding-top: 4%;
-	font-family: 'Girassol', cursive;
-	font-family: 'Bangers', cursive;
-	font-family: 'Press Start 2P', cursive;
-	text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 }
 
 .main_section {
-	background: linear-gradient( rgba(255, 255, 255, .5), rgba(255, 255, 255, 0.5)), url(../images/8bit.jpg);
-  background-position: center bottom;
-  background-repeat: no-repeat;
+	background: linear-gradient( rgba(255, 255, 255, .5), rgba(255, 255, 255, 0.5)), url(../images/8bit.jpg) no-repeat center bottom;
   background-size: cover;
 	height: 100vh;
 	padding: 2%;
-
-	// border: 27px dotted #f0e14a;
 }
 
 .answer_container {
-	width: 320px;
-	height: 30px;
-	// background-color: rgba(255,255,0,0.5);
-	background: rgba(212,229,255,0.9);
+	background: rgba(212,229,255,0.8);
 	border: 5px double #00008b;
-	margin: 10px auto;
 	border-radius: 10px;
-	// font-family: 'Girassol', cursive;
-	// font-family: 'Bangers', cursive;
-	// font-family: 'Press Start 2P', cursive;
-	// font-family: 'Share Tech Mono', monospace;
-	font-family: 'Girassol', cursive;
-	font-family: 'Bangers', cursive;
-	font-family: 'Press Start 2P', cursive;
-	text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
-	padding: 1%;
 	box-shadow: 5px 5px 5px gray;
+	font-family: $primary_gameboard_font;
+	height: 30px;
+	margin: 10px auto;
+	padding: 1%;
+	text-shadow: $primary_text_shadow;
+	width: 320px;
 }
 
 .main_answer-section {
 	padding-top: 2%;
-}
-
-.answer_container-text {
-	background-color: rgba(212,229,255,0.9);
-	color: black;
-	text-align: center;
 }
 
 .flip_answer {
@@ -117,86 +69,70 @@ button {
 
 .score-box {
 	width: 365px;
-	height: 45px;
-
 }
 
 .player_score-text {
-	// font-family: $primary_font;
-	font-family: 'Girassol', cursive;
-	font-family: 'Bangers', cursive;
-	font-family: 'Press Start 2P', cursive;
+	color: #1181b2;
+	font-family: $primary_gameboard_font;
   font-size: 24px;
   font-weight: 700;
-	color: #1181b2;
-	text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 	margin-top: 3px;
+	text-shadow: $primary_text_shadow;
+}
+
+.guess {
+	border: 3px solid #00008b;
+	border-radius: 10px;
+	box-shadow: $primary_box_shadow;
+	font-family: $secondary_gameboard_font;
+	font-size: 17px;
+	margin: 2% auto;
 }
 
 .guess_input {
-	width: 352px;
+	background: $primary_background;
 	height: 34px;
-	font-size: 17px;
-	background: #f0e14a;
-	margin: 2% auto;
-	border-radius: 10px;
-	border: 3px solid #00008b;
 	padding: 1%;
-	box-shadow: 4px 4px 4px gray;
-	font-family: 'Girassol', cursive;
-	font-family: 'Bangers', cursive;
-	font-family: 'Press Start 2P', cursive;
-	font-family: 'Share Tech Mono', monospace;
+	width: 352px;
 }
 
 .guess_button {
-	width: 365px;
-	height: 45px;
 	background: #97ce4c;
-	font-family: $primary_font;
 	color: black;
-	margin: 2% auto;
-	border: 3px solid #00008b;
-	font-size: 18px;
-	border-radius: 10px;
-	font-family: 'Girassol', cursive;
-	font-family: 'Bangers', cursive;
-	font-family: 'Press Start 2P', cursive;
-	text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
-	box-shadow: 4px 4px 4px gray;
+	font-family: $primary_gameboard_font;
+	height: 45px;
+	text-shadow: $primary_text_shadow;
+	width: 365px;
 }
 
 .main-login-submit {
-	width: 365px;
-	height: 45px;
 	background: #97ce4c;
-	font-family: $primary_font;
 	color: #ddedf4;
-	margin: 2% auto;
-	border: none;
+	font-family: $primary_font;
 	font-size: 18px;
+	height: 45px;
+	margin: 2% auto;
+	width: 365px;
 }
 
 .main_login {
-  background: linear-gradient( rgba(255, 255, 255, .5), rgba(255, 255, 255, 0.5)), url(../images/blood_dome.jpg);
-  background-position: center bottom;
-  background-repeat: no-repeat;
+	background: linear-gradient( rgba(255, 255, 255, .5), rgba(255, 255, 255, 0.5)), url(../images/blood_dome.jpg) no-repeat center bottom;
   background-size: cover;
-	height: 100vh;
-	width: 100%;
 	font-family: $primary_font;
 	font-size: 28px;
+	height: 100vh;
+	width: 100%;
 }
 
 .main_login-container {
+	align-content: center;
 	display: grid;
 	justify-content: center;
-	align-content: center;
 }
 
 .main_login-box {
-	padding-top: 25%;
 	padding-left: 13%;
+	padding-top: 25%;
 }
 
 .main_login-name {
@@ -207,50 +143,42 @@ button {
 }
 
 .name_input {
-	width: 225px;
+	border: 1px solid black;
+	border-radius: 5px;
+	box-shadow: $primary_box_shadow;
+	font-family: $secondary_gameboard_font;
+	font-size: 17px;
 	height: 45px;
 	margin: 2% auto;
-	border: 1px solid black;
-	box-shadow: 4px 4px 4px gray;
-	border-radius: 5px;
 	padding-left: 5px;
-	font-size: 17px;
-	font-family: 'Girassol', cursive;
-	font-family: 'Bangers', cursive;
-	font-family: 'Press Start 2P', cursive;
-	font-family: 'Share Tech Mono', monospace;
+	width: 225px;
 }
 
 .main-login-submit {
-	font-family: 'Girassol', cursive;
-	font-family: 'Bangers', cursive;
-	width: 140px;
-	height: 140px;
-	border-radius: 100%;
-	color: white;
-	text-decoration: none;
 	background-color: #97ce4c;
-	font-size: 1.5em;
-	box-shadow: 0px 6px 0px #28a428 , 0px 9px 25px rgba(0,0,0,.7);
-	text-shadow: 2px 2px black;
 	border: 1px solid black;
+	border-radius: 100%;
+	box-shadow: 0px 6px 0px #28a428 , 0px 9px 25px rgba(0,0,0,.7);
+	color: white;
+	font-family: $primary_welcome_page_font;
+	font-size: 1.5em;
+	height: 140px;
+	text-decoration: none;
+	text-shadow: 2px 2px black;
+	width: 140px;
 }
 
 .main_h1-login {
-	font-family: 'Girassol', cursive;
-	font-family: 'Bangers', cursive;
-	text-align: center;
+	font-family: $primary_welcome_page_font;
 	font-size: 90px;
+	text-align: center;
 	text-shadow: 2px 2px #97ce4c;
 }
 
 .main_challanger-label {
+	font-family: $secondary_gameboard_font;
 	font-size: 17px;
 	font-weight: 700;
-	font-family: 'Girassol', cursive;
-	font-family: 'Bangers', cursive;
-	font-family: 'Press Start 2P', cursive;
-	font-family: 'Share Tech Mono', monospace;
 }
 
 // @keyframes flip_answer {

@@ -111,6 +111,7 @@ button {
 }
 
 .flip_answer {
+	animation: flip 1s linear both;
 	transform: scaleY(-1);
 }
 
@@ -251,3 +252,16 @@ button {
 	font-family: 'Press Start 2P', cursive;
 	font-family: 'Share Tech Mono', monospace;
 }
+
+// @keyframes flip_answer {
+//   0% {
+//     transform: scaleY(0) rotate3d(-1, 1, 0, 0deg);
+//     background-image: none;
+//   }
+//   50% {
+//     transform: scaleY(-0.5) rotate3d(-1, 1, 0, 180deg);
+//   }
+//   100% {
+//     transform: scaleY(-1) rotate3d(-1, 1, 0, 0deg);
+//   }
+// }

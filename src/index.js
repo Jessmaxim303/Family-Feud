@@ -6,6 +6,8 @@ import Game from "./game";
 import Round from "./round";
 import Player from "./player";
 
+$(".main_section").hide();
+
 const showGameBoard = () => {
   if ($(".main_p1-log").val() && $(".main_p2-log").val()) {
     $(".main_login").hide();
@@ -26,7 +28,7 @@ const startGame = (data) => {
     $(".main_answer-section").append(
       `<section id="${answer.surveyId}" class="answer_container ${answer.answer.toLowerCase().split(' ').join('')}">
             <h3 class="answer_container-text">${answer.answer}</h3>
-            <h3 class="answer_container-text">${answer.respondents}</h3>
+            <h3 class="answer_container-text answer-score">${answer.respondents}</h3>
        </section>`);
   });
 }
@@ -34,7 +36,7 @@ const startGame = (data) => {
 const getGuess = (guess) => {
   if(round.checkQuestion(guess)) {
     $(`.${guess}`).addClass("flip_answer");
-  };
+  }
 };
 
 const receiveData = () => {
@@ -45,10 +47,15 @@ const receiveData = () => {
 }
 
 const sendGuess = () => {
+  if($(".p1_guess-input").val()) {
+  getGuess($(".p1_guess-input").val().toLowerCase().split(' ').join(''));
+  } else {
   getGuess($(".p2_guess-input").val().toLowerCase().split(' ').join(''));
+  }
 }
 
 receiveData();
 
+$(".p1_guess-button").click(sendGuess);
 $(".p2_guess-button").click(sendGuess);
 $(".main-login-submit").click(showGameBoard);

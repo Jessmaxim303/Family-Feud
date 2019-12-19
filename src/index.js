@@ -16,12 +16,12 @@ const showGameBoard = () => {
 };
 
 $(".main-login-submit").click(showGameBoard);
-
+let round;
 const startGame = (data) => {
-  const game = new Game(data)
-  game.createPlayers()
-  let round = game.createRound(data)
-  $(".main_question-section").text(round.randomSurveyQuestion()[0].question)
+  const game = new Game(data);
+  game.createPlayers();
+  round = game.createRound(data);
+  $(".main_question-section").text(round.randomSurveyQuestion()[0].question);
   round.getAnswerById().forEach(answer => {
     $(".main_answer-section").append(
       `<section id="${answer.surveyId}" class="answer_container">
@@ -32,10 +32,11 @@ const startGame = (data) => {
 }
 
 const getGuess = (guess) => {
-  console.log('workin');
-  if(typeof round.checkQuestion(guess) === 'number') {
-    console.log('workin right');
-    //grab the id on the dom and apply new class
+  // console.log('workin');
+  console.log(round.checkQuestion(guess));
+
+  if(round.checkQuestion(guess) === 1) {
+    console.log('still workin?');
     $(`#${round.checkQuestion(guess)}`).addClass("flip_answer");
   };
 };
@@ -44,10 +45,14 @@ const receiveData = () => {
   fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data")
     .then(response => response.json())
     .then(data => startGame(data.data))
+    .catch(error => console.log(error));
 }
 
-receiveData()
+const sendGuess = () => {
+  getGuess($(".p2_guess-input").val());
+}
 
-startGame();
-$(".p2_guess-button").click(getGuess($(".p2_guess-input").val()));
+receiveData();
+
+$(".p2_guess-button").click(sendGuess);
 $(".main-login-submit").click(showGameBoard);

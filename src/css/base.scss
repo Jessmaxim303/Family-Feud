@@ -132,7 +132,7 @@ button {
 
 .main_login-box {
 	padding-left: 13%;
-	padding-top: 25%;
+	padding-top: 8%;
 }
 
 .main_login-name {
@@ -181,6 +181,17 @@ button {
 	font-weight: 700;
 }
 
+.instructions {
+	font-family: $secondary_gameboard_font;
+	font-size: 15px;
+	text-align: center;
+	padding-top: 5%;
+}
+
+ul {
+	list-style-type: none;
+}
+
 // @keyframes flip_answer {
 //   0% {
 //     transform: scaleY(0) rotate3d(-1, 1, 0, 0deg);
@@ -193,3 +204,4 @@ button {
 //     transform: scaleY(-1) rotate3d(-1, 1, 0, 0deg);
 //   }
 // }
+

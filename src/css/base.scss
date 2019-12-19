@@ -131,7 +131,7 @@ button {
 
 .main_login-box {
 	padding-left: 13%;
-	padding-top: 25%;
+	padding-top: 8%;
 }
 
 .main_login-name {
@@ -179,3 +179,16 @@ button {
 	font-size: 17px;
 	font-weight: 700;
 }
+
+.instructions {
+	font-family: $secondary_gameboard_font;
+	font-size: 15px;
+	text-align: center;
+	padding-top: 5%;
+}
+
+ul {
+	list-style-type: none;
+}
+
+

@@ -22,12 +22,7 @@ class Round {
     return this.answers.find(answer => answer.answer.toLowerCase().split(' ').join('') === guess);
   }
 
-
   returnFeedback() {
-
-  }
-
-  submitNewGuess() {
 
   }
 }

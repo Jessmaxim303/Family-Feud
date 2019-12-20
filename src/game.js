@@ -12,10 +12,10 @@ class Game {
   }
 
   returnWinner() {
-    if(player1.score > player2.score) {
-      return this.player1;
+    if(this.player1.score > this.player2.score) {
+      return `${this.player1} is the winner, with ${this.player1.score} points!`;
     } else {
-      return this.player2;
+      return `${this.player2} is the winner, with ${this.player2.score} points!`;
     }
   }
 

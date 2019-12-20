@@ -45,13 +45,22 @@ button {
 	padding: 2%;
 }
 
+.answer-score {
+	border-left: 2px solid #00008b;
+	height: 100%;
+	padding-left: 5%;
+	width: 40px;
+}
+
 .answer_container {
 	background: rgba(212,229,255,0.8);
 	border: 5px double #00008b;
 	border-radius: 10px;
 	box-shadow: 5px 5px 5px gray;
+	display: flex;
 	font-family: $primary_gameboard_font;
 	height: 30px;
+	justify-content: space-between;
 	margin: 10px auto;
 	padding: 1%;
 	text-shadow: $primary_text_shadow;
@@ -63,7 +72,7 @@ button {
 }
 
 .flip_answer {
-	animation: flip 1s linear both;
+	animation: flip_answer 1s linear both;
 	transform: scaleY(-1);
 }
 
@@ -192,16 +201,15 @@ ul {
 	list-style-type: none;
 }
 
-// @keyframes flip_answer {
-//   0% {
-//     transform: scaleY(0) rotate3d(-1, 1, 0, 0deg);
-//     background-image: none;
-//   }
-//   50% {
-//     transform: scaleY(-0.5) rotate3d(-1, 1, 0, 180deg);
-//   }
-//   100% {
-//     transform: scaleY(-1) rotate3d(-1, 1, 0, 0deg);
-//   }
-// }
-
+@keyframes flip_answer {
+  0% {
+    transform: scaleY(0) rotate3d(-1, 1, 0, 0deg);
+    background-image: none;
+  }
+  50% {
+    transform: scaleY(-0.5) rotate3d(-1, 1, 0, 180deg);
+  }
+  100% {
+    transform: scaleY(-1) rotate3d(-1, 1, 0, 0deg);
+  }
+}

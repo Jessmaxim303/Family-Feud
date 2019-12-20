@@ -71,9 +71,11 @@ button {
 	padding-top: 2%;
 }
 
-.flip_answer {
-	animation: flip_answer 1s linear both;
-	transform: scaleY(-1);
+.answer-cover {
+	background-color: #1181b2;
+	h3 {
+		visibility: hidden;
+	}
 }
 
 .score-box {
@@ -201,15 +203,27 @@ ul {
 	list-style-type: none;
 }
 
+.flip_answer {
+	animation: flip_answer 1s linear both;
+}
+
+
 @keyframes flip_answer {
   0% {
-    transform: scaleY(0) rotate3d(-1, 1, 0, 0deg);
-    background-image: none;
+    transform: scaleY(0.50) rotate3d(-1, 1, 0, 0);
+		text-indent: 99999px;
   }
+	25% {
+		transform: scaleY(0) rotate3d(-1, 1, 0, 0);
+		text-indent: 99999px;
+	}
   50% {
-    transform: scaleY(-0.5) rotate3d(-1, 1, 0, 180deg);
+    transform: scaleY(0.3) rotate3d(-1, 1, 0, 0);
   }
+	75% {
+		transform: scaleY(0.6) rotate3d(-1, 1, 0, 0);
+	}
   100% {
-    transform: scaleY(-1) rotate3d(-1, 1, 0, 0deg);
+    transform: scaleX(1) rotate3d(-1, 1, 0, 0);
   }
 }

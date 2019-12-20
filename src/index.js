@@ -26,7 +26,7 @@ const startGame = (data) => {
   $(".main_question-section").text(round.randomSurveyQuestion()[0].question);
   round.getAnswerById().forEach(answer => {
     $(".main_answer-section").append(
-      `<section id="${answer.surveyId}" class="answer_container ${answer.answer.toLowerCase().split(' ').join('')}">
+      `<section id="${answer.surveyId}" class="answer_container answer-cover ${answer.answer.toLowerCase().split(' ').join('')}">
             <h3 class="answer_container-text">${answer.answer}</h3>
             <h3 class="answer_container-text answer-score">${answer.respondents}</h3>
        </section>`);
@@ -36,6 +36,7 @@ const startGame = (data) => {
 const getGuess = (guess) => {
   if(round.checkQuestion(guess)) {
     $(`.${guess}`).addClass("flip_answer");
+    $(`.${guess}`).removeClass("answer-cover")
   }
 };
 

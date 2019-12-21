@@ -34,13 +34,13 @@ const startGame = (data) => {
   });
 }
 
-const getGuess = (guess) => {
-  game.player1.guessCount++;
+const getGuess = (guess, player) => {
+  game[player].guessCount++;
   if(round.checkQuestion(guess)) {
     $(`.${guess}`).addClass("flip_answer");
     $(`.${guess}`).removeClass("answer-cover");
   } else {
-    game.player1.incorrectGuessCount++;
+    game[player].incorrectGuessCount++;
     $(`.p1_strike-${game.player1.incorrectGuessCount}`).removeClass("hidden");
   }
 };
@@ -54,9 +54,9 @@ const receiveData = () => {
 
 const sendGuess = () => {
   if($(".p1_guess-input").val()) {
-  getGuess($(".p1_guess-input").val().toLowerCase().split(' ').join(''));
+  getGuess($(".p1_guess-input").val().toLowerCase().split(' ').join(''), 'player1');
   } else {
-  getGuess($(".p2_guess-input").val().toLowerCase().split(' ').join(''));
+  getGuess($(".p2_guess-input").val().toLowerCase().split(' ').join(''), 'player2');
   }
 }
 

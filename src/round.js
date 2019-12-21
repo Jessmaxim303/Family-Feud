@@ -5,7 +5,7 @@ class Round {
     this.question = survey.question;
     this.answers = survey.answers;
     this.respondents = survey.respondents;
-    this.activePlayer = {};
+    this.activePlayer = player1;
     this.feedback = [];
   }
 

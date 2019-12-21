@@ -7,8 +7,8 @@ class Player {
     this.incorrectGuessCount = 0;
   }
 
-  updateScore() {
-
+  updateScore(respondents) {
+    this.score += respondents;
   }
 
   endGame() {

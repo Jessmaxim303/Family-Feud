@@ -39,6 +39,8 @@ const getGuess = (guess, player) => {
   if(round.checkQuestion(guess)) {
     $(`.${guess}`).addClass("flip_answer");
     $(`.${guess}`).removeClass("answer-cover");
+    game[player].updateScore(round.checkQuestion(guess).respondents);
+    $(`.${player}_score-text`).text(`SCORE: ${game[player].score}`)
   } else {
     game[player].incorrectGuessCount++;
     $(`.${player}_strike-${game.player1.incorrectGuessCount}`).removeClass("hidden");

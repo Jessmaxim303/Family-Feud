@@ -19,14 +19,15 @@ const showGameBoard = () => {
 
 $(".main-login-submit").click(showGameBoard);
 let round;
+let game;
 const startGame = (data) => {
-  const game = new Game(data);
+  game = new Game(data);
   game.createPlayers();
   round = game.createRound(data);
   $(".main_question-section").text(round.randomSurveyQuestion()[0].question);
   round.getAnswerById().forEach(answer => {
     $(".main_answer-section").append(
-      `<section id="${answer.surveyId}" class="answer_container answer-cover ${answer.answer.toLowerCase().split(' ').join('')}">
+      `<section class="answer_container answer-cover ${answer.answer.toLowerCase().split(' ').join('')}">
             <h3 class="answer_container-text">${answer.answer}</h3>
             <h3 class="answer_container-text answer-score">${answer.respondents}</h3>
        </section>`);
@@ -34,9 +35,13 @@ const startGame = (data) => {
 }
 
 const getGuess = (guess) => {
+  game.player1.guessCount++;
   if(round.checkQuestion(guess)) {
     $(`.${guess}`).addClass("flip_answer");
-    $(`.${guess}`).removeClass("answer-cover")
+    $(`.${guess}`).removeClass("answer-cover");
+  } else {
+    game.player1.incorrectGuessCount++;
+    $(`.p1_strike-${game.player1.incorrectGuessCount}`).removeClass("hidden");
   }
 };
 

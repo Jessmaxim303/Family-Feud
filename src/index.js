@@ -41,7 +41,12 @@ const getGuess = (guess, player) => {
     $(`.${guess}`).removeClass("answer-cover");
   } else {
     game[player].incorrectGuessCount++;
-    $(`.p1_strike-${game.player1.incorrectGuessCount}`).removeClass("hidden");
+    $(`.${player}_strike-${game.player1.incorrectGuessCount}`).removeClass("hidden");
+  }
+  if(round.activePlayer === player1) {
+    round.activePlayer = game.player2;
+  } else {
+    round.activePlayer = game.player1;
   }
 };
 
@@ -58,7 +63,7 @@ const sendGuess = () => {
   } else {
   getGuess($(".p2_guess-input").val().toLowerCase().split(' ').join(''), 'player2');
   }
-}
+};
 
 receiveData();
 

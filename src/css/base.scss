@@ -116,6 +116,15 @@ button {
 	width: 365px;
 }
 
+.strike-container {
+	display: flex;
+}
+
+.x {
+	color: red;
+	font-size: 54px;
+}
+
 .main-login-submit {
 	background: #97ce4c;
 	color: #ddedf4;
@@ -203,10 +212,13 @@ ul {
 	list-style-type: none;
 }
 
+.hidden {
+	display: none;
+}
+
 .flip_answer {
 	animation: flip_answer 1s linear both;
 }
-
 
 @keyframes flip_answer {
   0% {
@@ -224,6 +236,6 @@ ul {
 		transform: scaleY(0.6) rotate3d(-1, 1, 0, 0);
 	}
   100% {
-    transform: scaleX(1) rotate3d(-1, 1, 0, 0);
+    transform: scaleY(1) rotate3d(-1, 1, 0, 0);
   }
 }

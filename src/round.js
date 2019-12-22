@@ -7,6 +7,7 @@ class Round {
     this.respondents = survey.respondents;
     this.activePlayer = player1;
     this.feedback = [];
+    this.correctGuesses = 0;
   }
 
   randomSurveyQuestion() {
@@ -19,8 +20,11 @@ class Round {
   }
 
   checkQuestion(guess) {
-    return this.answers.find(answer => answer.answer.toLowerCase().split(' ').join('') === guess);
-  }
+    if (this.answers.find(answer => answer.answer.toLowerCase().split(' ').join('') === guess)) {
+      this.correctGuesses++;
+      return this.answers.find(answer => answer.answer.toLowerCase().split(' ').join('') === guess)
+    }
+  };
 
   returnFeedback() {
 

@@ -3,12 +3,13 @@ import Round from "./Round";
 import $ from 'jquery';
 
 class Game {
-  constructor() {
+  constructor(data) {
     this.player1 = {};
     this.player2 = {};
     this.scoreboard  = [];
     this.round = {};
     this.roundCount = 0; // might not need 
+    this.gameData = data;
   }
 
   returnWinner() {
@@ -33,6 +34,8 @@ class Game {
     const round = new Round(data, this.player1, this.player2);
     return round;
   }
+
+
 
 }
 

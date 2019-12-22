@@ -17,13 +17,7 @@ const showGameBoard = () => {
   };
 };
 
-$(".main-login-submit").click(showGameBoard);
-let round;
-let game;
-const startGame = (data) => {
-  game = new Game(data);
-  game.createPlayers();
-  round = game.createRound(data);
+const newRound = () => {
   $(".main_question-section").text(round.randomSurveyQuestion()[0].question);
   round.getAnswerById().forEach(answer => {
     $(".main_answer-section").append(
@@ -32,6 +26,16 @@ const startGame = (data) => {
             <h3 class="answer_container-text answer-score">${answer.respondents}</h3>
        </section>`);
   });
+}
+
+$(".main-login-submit").click(showGameBoard);
+let round;
+let game;
+const startGame = (data) => {
+  game = new Game(data);
+  game.createPlayers();
+  round = game.createRound(game.gameData);
+  newRound();
 }
 
 const getGuess = (guess, player) => {
@@ -45,10 +49,15 @@ const getGuess = (guess, player) => {
     game[player].incorrectGuessCount++;
     $(`.${player}_strike-${game.player1.incorrectGuessCount}`).removeClass("hidden");
   }
-  if(round.activePlayer === player1) {
+  if(round.activePlayer === game.player1) {
     round.activePlayer = game.player2;
   } else {
     round.activePlayer = game.player1;
+  }
+  console.log(round.correctGuesses);
+
+  if(round.correctGuesses === 6 || game.player1.incorrectGuessCount === 3 &&game.player2.incorrectGuessCount === 3) {
+    newRound();
   }
 };
 
@@ -66,6 +75,8 @@ const sendGuess = () => {
   getGuess($(".p2_guess-input").val().toLowerCase().split(' ').join(''), 'player2');
   }
 };
+
+
 
 receiveData();
 

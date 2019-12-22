@@ -18,6 +18,7 @@ const showGameBoard = () => {
 };
 
 const newRound = () => {
+  $(".main_answer-section").empty();
   $(".main_question-section").text(round.randomSurveyQuestion()[0].question);
   round.getAnswerById().forEach(answer => {
     $(".main_answer-section").append(

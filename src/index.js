@@ -34,14 +34,21 @@ const startGame = (data) => {
   });
 }
 
-const getGuess = (guess) => {
-  game.player1.guessCount++;
+const getGuess = (guess, player) => {
+  game[player].guessCount++;
   if(round.checkQuestion(guess)) {
     $(`.${guess}`).addClass("flip_answer");
     $(`.${guess}`).removeClass("answer-cover");
+    game[player].updateScore(round.checkQuestion(guess).respondents);
+    $(`.${player}_score-text`).text(`SCORE: ${game[player].score}`)
   } else {
-    game.player1.incorrectGuessCount++;
-    $(`.p1_strike-${game.player1.incorrectGuessCount}`).removeClass("hidden");
+    game[player].incorrectGuessCount++;
+    $(`.${player}_strike-${game.player1.incorrectGuessCount}`).removeClass("hidden");
+  }
+  if(round.activePlayer === player1) {
+    round.activePlayer = game.player2;
+  } else {
+    round.activePlayer = game.player1;
   }
 };
 
@@ -54,11 +61,11 @@ const receiveData = () => {
 
 const sendGuess = () => {
   if($(".p1_guess-input").val()) {
-  getGuess($(".p1_guess-input").val().toLowerCase().split(' ').join(''));
+  getGuess($(".p1_guess-input").val().toLowerCase().split(' ').join(''), 'player1');
   } else {
-  getGuess($(".p2_guess-input").val().toLowerCase().split(' ').join(''));
+  getGuess($(".p2_guess-input").val().toLowerCase().split(' ').join(''), 'player2');
   }
-}
+};
 
 receiveData();
 

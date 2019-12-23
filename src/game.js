@@ -3,12 +3,13 @@ import Round from "./Round";
 import $ from 'jquery';
 
 class Game {
-  constructor() {
+  constructor(data) {
     this.player1 = {};
     this.player2 = {};
     this.scoreboard  = [];
     this.round = {};
-    this.roundCount = 0; // might not need 
+    this.roundCount = 0;
+    this.gameData = data;
   }
 
   returnWinner() {
@@ -22,7 +23,6 @@ class Game {
   fastMoney() {
 
   }
-
 
   createPlayers() {
     this.player1 = new Player($('.main_p1-log').val());
@@ -38,8 +38,6 @@ class Game {
     let highScore = JSON.stringify(this.scoreboard );
     global.localStorage.setItem('high Score', highScore);
   }
-
-
 
 }
 

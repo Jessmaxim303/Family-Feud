@@ -45,7 +45,7 @@ const getGuess = (guess, player) => {
     game[player].incorrectGuessCount++;
     $(`.${player}_strike-${game.player1.incorrectGuessCount}`).removeClass("hidden");
   }
-  if(round.activePlayer === player1) {
+  if(round.activePlayer === game.player1) {
     round.activePlayer = game.player2;
   } else {
     round.activePlayer = game.player1;
@@ -65,6 +65,7 @@ const sendGuess = () => {
   } else {
   getGuess($(".p2_guess-input").val().toLowerCase().split(' ').join(''), 'player2');
   }
+  
 };
 
 receiveData();

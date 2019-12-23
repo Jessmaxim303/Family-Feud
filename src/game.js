@@ -34,6 +34,13 @@ class Game {
     return round;
   }
 
+  saveToLocal() {
+    let highScore = JSON.stringify(this.scoreboard );
+    global.localStorage.setItem('high Score', highScore);
+  }
+
+
+
 }
 
 

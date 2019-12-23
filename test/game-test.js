@@ -1,5 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
+const spies = require('chai-spies');
+chai.use(spies);
 
 import Game from '../src/game';
 
@@ -46,6 +48,13 @@ describe('Game', () => {
     expect(game.round).to.deep.equal({});
   })
 
+  it('Should save to local storage', () => {
+      const game = new Game();
+      game.saveToLocal();
+      chai.spy.on(game.saveToLocal,['setItem', 'getItem'], () => {});
+      expect(game.saveToLocal).to.have.been.called(1);
+  });
+
   describe('createPlayers', () => {
     it('should be a function', () => {
       const game = new Game();
@@ -53,4 +62,6 @@ describe('Game', () => {
       expect(game.createPlayers).to.be.a('function');
     })
   })
+
+
 });

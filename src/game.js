@@ -8,7 +8,7 @@ class Game {
     this.player2 = {};
     this.scoreboard  = [];
     this.round = {};
-    this.roundCount = 0; // might not need 
+    this.roundCount = 0;
     this.gameData = data;
   }
 
@@ -24,7 +24,6 @@ class Game {
 
   }
 
-
   createPlayers() {
     this.player1 = new Player($('.main_p1-log').val());
     this.player2 = new Player($('.main_p2-log').val());
@@ -35,7 +34,10 @@ class Game {
     return round;
   }
 
-
+  saveToLocal() {
+    let highScore = JSON.stringify(this.scoreboard );
+    global.localStorage.setItem('high Score', highScore);
+  }
 
 }
 

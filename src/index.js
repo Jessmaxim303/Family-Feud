@@ -75,6 +75,7 @@ const sendGuess = () => {
   } else {
   getGuess($(".p2_guess-input").val().toLowerCase().split(' ').join(''), 'player2');
   }
+  
 };
 
 

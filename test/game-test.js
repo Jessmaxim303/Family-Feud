@@ -4,6 +4,11 @@ const spies = require('chai-spies');
 chai.use(spies);
 
 import Game from '../src/game';
+global.localStorage = {
+    setItem() {
+  }
+}
+
 
 describe('Game', () => {
   it('should be a function', () => {
@@ -50,9 +55,9 @@ describe('Game', () => {
 
   it('Should save to local storage', () => {
       const game = new Game();
+      chai.spy.on(global.localStorage,['setItem', 'getItem'], () => {});
       game.saveToLocal();
-      chai.spy.on(game.saveToLocal,['setItem', 'getItem'], () => {});
-      expect(game.saveToLocal).to.have.been.called(1);
+      expect(global.localStorage.setItem).to.have.been.called(1);
   });
 
   describe('createPlayers', () => {

@@ -7,14 +7,15 @@ class Round {
     this.respondents = survey.respondents;
     this.feedback = [];
     this.correctGuesses = 0;
-    this.surveyChances =
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+    this.number = 0;
+    this.surveyChances = 15;
   }
 
   randomSurveyQuestion() {
-    this.id = Math.ceil(Math.random() * this.surveyChances.length);
-    this.surveyChances.splice(this.id - 1, 1);
-    return this.survey[this.id - 1];
+    this.number = Math.ceil(Math.random() * this.surveyChances);
+    this.surveyChances--;
+    this.id = this.survey[this.number - 1].id;
+    return this.survey[this.number - 1];
   }
 
   getAnswerById() {
@@ -27,6 +28,12 @@ class Round {
       return this.answers.find(answer => answer.answer.toLowerCase().split(' ').join('') === guess)
     }
   };
+
+  removeSurvey() {
+    this.survey = this.survey.filter(x =>
+      x.id !== this.id);
+      console.log(this.survey);
+  }
 
   returnFeedback() {
 

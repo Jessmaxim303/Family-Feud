@@ -59,6 +59,7 @@ const newRound = () => {
   });
   resetGuesses();
   removeXs();
+  round.removeSurvey();
 }
 
 $(".main-login-submit").click(showGameBoard);
@@ -100,6 +101,7 @@ const getGuess = (guess, player) => {
     $(`.${player}_score-text`).text(`SCORE: ${game[player].score}`)
   } else {
     game[player].incorrectGuessCount++;
+    console.log(game[player].incorrectGuessCount);
     $(`.${player}_strike-${game.player1.incorrectGuessCount}`).removeClass("hidden");
   }
   if(round.correctGuesses >= 6 ||
@@ -122,7 +124,7 @@ const sendGuess = () => {
   } else {
   getGuess($(".p2_guess-input").val().toLowerCase().split(' ').join(''), 'player2');
   }
-  
+
 };
 
 receiveData();

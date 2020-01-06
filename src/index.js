@@ -48,7 +48,17 @@ const removeXs = () => {
 }
 
 const newRound = () => {
-  $(".main_answer-section").empty();
+  let answerSection = $(".main_answer-section")
+  answerSection.empty();
+  $(".main_question-section").empty();
+  console.log(round.survey);
+  if(!round.survey.length) {
+    if(game.player1.score > game.player2.score) {
+      answerSection.text(`Game Over, ${$(".main_p1-log").val()} wins with ${game.player1.score} points`);
+    } else {
+      answerSection.text(`Game Over, ${$(".main_p2-log").val()} wins with ${game.player2.score} points`);
+    }
+  }
   $(".main_question-section").text(round.randomSurveyQuestion().question);
   round.getAnswerById().forEach(answer => {
     $(".main_answer-section").append(

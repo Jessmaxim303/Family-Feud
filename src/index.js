@@ -56,7 +56,11 @@ const getScoreBoardData = () => {
 
 const showScoreBoard = (scores) => {
   let highScores = scores.highScores.filter(score => score.appId === "1909knthjm");
-  $(".main_highscores-section").text(highScores)
+  highScores.forEach(score => {
+    $(".main_highscores-section").append(`
+      <h4>${score.playerName} with ${score.playerScore} points
+    `)
+  })
 }
 
 const postWinner = (player) => {

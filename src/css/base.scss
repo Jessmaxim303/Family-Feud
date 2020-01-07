@@ -6,7 +6,7 @@
 }
 
 * {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 }
 
 button {
@@ -248,4 +248,14 @@ ul {
 .js_money-round {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
+	color: #FF0000;
+}
+
+.js_timer-box {
+	font-size: 100px;
+}
+
+.js_timer-text {
+	font-size: 16px;
 }

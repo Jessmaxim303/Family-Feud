@@ -72,10 +72,11 @@ const postWinner = (player) => {
 }
 
 const newRound = () => {
-  if (game.round === 3) {
+  game.roundCount++;
+  console.log(game.roundCount)
+  if (game.roundCount === 3) {
     moneyRound()
   }
-  game.roundCount++;
   let answerSection = $(".main_answer-section")
   answerSection.empty();
   $(".main_question-section").empty();
@@ -168,6 +169,7 @@ const sendGuess = () => {
 
 let timeLeft = 30;
 var timerBox = document.querySelector('.js_timer-box');
+var jsTimerText = document.querySelector('.js_timer-text')
 
 const moneyRound = () => {
   console.log('money round')
@@ -178,11 +180,13 @@ const moneyRound = () => {
 function countdown() {
       if (timeLeft == 0) {
       } else {
-        timerBox.innerHTML = timeLeft + ' seconds remaining';
+        timerBox.innerHTML = timeLeft;
+        jsTimerText.innerHTML = ' Seconds Remaining'
         timeLeft--;
       }
     }
 
+// moneyRound()
 receiveData();
 
 $(".p1_guess-button").click(sendGuess);

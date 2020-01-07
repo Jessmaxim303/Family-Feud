@@ -5,6 +5,10 @@
 	margin: 0;
 }
 
+* {
+	border: 1px solid red;
+}
+
 button {
 	cursor: pointer;
 }
@@ -35,7 +39,7 @@ button {
 	justify-content: center;
 	padding-top: 5%;
 	text-shadow: $primary_text_shadow;
-	width: 50%;
+	width: 30%;
 }
 
 .main_section {
@@ -239,4 +243,9 @@ ul {
   100% {
     transform: scaleY(1) rotate3d(-1, 1, 0, 0);
   }
+}
+
+.js_money-round {
+	display: flex;
+	flex-direction: column;
 }

@@ -72,6 +72,9 @@ const postWinner = (player) => {
 }
 
 const newRound = () => {
+  if (game.round === 3) {
+    moneyRound()
+  }
   game.roundCount++;
   let answerSection = $(".main_answer-section")
   answerSection.empty();
@@ -161,8 +164,24 @@ const sendGuess = () => {
 } else if($(".p2_guess-input").val()) {
   getGuess($(".p2_guess-input").val().toLowerCase().split(' ').join(''), 'player2');
   }
-
 };
+
+let timeLeft = 30;
+var timerBox = document.querySelector('.js_timer-box');
+
+const moneyRound = () => {
+  console.log('money round')
+  $('.js_money-header').text('Money Round!')
+  var timerId = setInterval(countdown, 1000);
+}
+    
+function countdown() {
+      if (timeLeft == 0) {
+      } else {
+        timerBox.innerHTML = timeLeft + ' seconds remaining';
+        timeLeft--;
+      }
+    }
 
 receiveData();
 

@@ -71,6 +71,10 @@ const postWinner = (player) => {
   })
 }
 
+const showHighScores = () => {
+  $(".main_answer-section")
+}
+
 const newRound = () => {
   game.roundCount++;
   let answerSection = $(".main_answer-section")
@@ -82,7 +86,7 @@ const newRound = () => {
       $(".main_question-section").text(`Game Over, ${$(".main_player1-log").val()} wins with ${game.player1.score} points`);
       postWinner("player1");
     } else {
-      answerSection.text(`Game Over, ${$(".main_player2-log").val()} wins with ${game.player2.score} points`);
+      answerSection.text(`GAME OVER, ${$(".main_player2-log").val()} wins with ${game.player2.score} points.`);
       postWinner("player2");
     }
   }
@@ -169,3 +173,4 @@ receiveData();
 $(".p1_guess-button").click(sendGuess);
 $(".p2_guess-button").click(sendGuess);
 $(".main-login-submit").click(showGameBoard);
+$(".main-highscores-button")

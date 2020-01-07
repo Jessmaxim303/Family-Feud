@@ -12,11 +12,11 @@ let round;
 let game;
 
 const showGameBoard = () => {
-  if ($(".main_p1-log").val() && $(".main_p2-log").val()) {
+  if ($(".main_player1-log").val() && $(".main_player2-log").val()) {
     $(".main_login").hide();
     $(".main_section").show();
-    $(".p1_name").text("Rick '" + $(".main_p1-log").val() + "' Sanchez");
-    $(".p2_name").text("Morty '" + $(".main_p2-log").val() + "' Smith");
+    $(".p1_name").text("Rick '" + $(".main_player1-log").val() + "' Sanchez");
+    $(".p2_name").text("Morty '" + $(".main_player2-log").val() + "' Smith");
   };
 };
 
@@ -47,6 +47,23 @@ const removeXs = () => {
   }
 }
 
+const showScoreBoard = () => {
+
+}
+
+const postWinner = (player) => {
+  fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data", {
+    method: "POST",
+    headers: {"Content-Type": "Application/JSON"},
+    body: {
+      appId: "1909knthjm",
+      playerName: `${$(".main_" + player + "-log").val()}`, 
+      playerScore: `${game.getPlayerScore(player)}`
+    }
+  })
+
+}
+
 const newRound = () => {
   let answerSection = $(".main_answer-section")
   answerSection.empty();
@@ -54,9 +71,11 @@ const newRound = () => {
   console.log(round.survey);
   if(!round.survey.length) {
     if(game.player1.score > game.player2.score) {
-      answerSection.text(`Game Over, ${$(".main_p1-log").val()} wins with ${game.player1.score} points`);
+      answerSection.text(`Game Over, ${$(".main_player1-log").val()} wins with ${game.player1.score} points`);
+      postWinner("player1");
     } else {
-      answerSection.text(`Game Over, ${$(".main_p2-log").val()} wins with ${game.player2.score} points`);
+      answerSection.text(`Game Over, ${$(".main_player2-log").val()} wins with ${game.player2.score} points`);
+      postWinner("player2");
     }
   }
   $(".main_question-section").text(round.randomSurveyQuestion().question);

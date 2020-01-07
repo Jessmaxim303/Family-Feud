@@ -14,9 +14,9 @@ class Game {
 
   getPlayerScore(playerName) {
     if(playerName === "player1") {
-      return this.player1.score
+      return this.player1.score;
     } else if (playerName === "player2") {
-      return this.player2.score
+      return this.player2.score;
     }
   }
 

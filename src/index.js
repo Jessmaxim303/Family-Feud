@@ -47,31 +47,39 @@ const removeXs = () => {
   }
 }
 
-const showScoreBoard = () => {
+const getScoreBoardData = () => {
+  fetch("http://fe-apps.herokuapp.com/api/v1/gametime/leaderboard")
+   .then(response => response.json())
+   .then(data => showScoreBoard(data))
+   .catch(error => console.log(error));
+}
 
+const showScoreBoard = (scores) => {
+  let highScores = scores.highScore.find(score => score.appId === "1909knthjm");
+  console.log(highScores);
 }
 
 const postWinner = (player) => {
-  fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data", {
+  fetch("http://fe-apps.herokuapp.com/api/v1/gametime/leaderboard", {
     method: "POST",
     headers: {"Content-Type": "Application/JSON"},
-    body: {
+    body: JSON.stringify({
       appId: "1909knthjm",
-      playerName: `${$(".main_" + player + "-log").val()}`, 
+      playerName: `${$(".main_" + player + "-log").val()}`,
       playerScore: `${game.getPlayerScore(player)}`
-    }
+    })
   })
-
 }
 
 const newRound = () => {
+  game.roundCount++;
   let answerSection = $(".main_answer-section")
   answerSection.empty();
   $(".main_question-section").empty();
   console.log(round.survey);
-  if(!round.survey.length) {
+  if(round.survey.length <= 0) {
     if(game.player1.score > game.player2.score) {
-      answerSection.text(`Game Over, ${$(".main_player1-log").val()} wins with ${game.player1.score} points`);
+      $(".main_question-section").text(`Game Over, ${$(".main_player1-log").val()} wins with ${game.player1.score} points`);
       postWinner("player1");
     } else {
       answerSection.text(`Game Over, ${$(".main_player2-log").val()} wins with ${game.player2.score} points`);
@@ -150,7 +158,7 @@ const receiveData = () => {
 const sendGuess = () => {
   if($(".p1_guess-input").val()) {
   getGuess($(".p1_guess-input").val().toLowerCase().split(' ').join(''), 'player1');
-  } else {
+} else if($(".p2_guess-input").val()) {
   getGuess($(".p2_guess-input").val().toLowerCase().split(' ').join(''), 'player2');
   }
 

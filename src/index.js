@@ -55,7 +55,8 @@ const getScoreBoardData = () => {
 }
 
 const showScoreBoard = (scores) => {
-  let highScores = scores.highScores.filter(score => score.appId === "1909knthjm");
+  let highScores = scores.highScores.filter(score => score.appId === "1909knthjm").sort((a, b) => a.score - b.score)
+  $(".main_highscores-section").empty();
   highScores.forEach(score => {
     $(".main_highscores-section").append(`
       <h4>${score.playerName} with ${score.playerScore} points

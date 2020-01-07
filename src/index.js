@@ -173,4 +173,4 @@ receiveData();
 $(".p1_guess-button").click(sendGuess);
 $(".p2_guess-button").click(sendGuess);
 $(".main-login-submit").click(showGameBoard);
-$(".main-highscores-button")
+// $(".main-highscores-button")

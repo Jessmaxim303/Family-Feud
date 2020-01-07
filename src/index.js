@@ -55,8 +55,8 @@ const getScoreBoardData = () => {
 }
 
 const showScoreBoard = (scores) => {
-  let highScores = scores.highScore.find(score => score.appId === "1909knthjm");
-  console.log(highScores);
+  let highScores = scores.highScores.filter(score => score.appId === "1909knthjm");
+  $(".main_highscores-section").text(highScores)
 }
 
 const postWinner = (player) => {
@@ -69,10 +69,6 @@ const postWinner = (player) => {
       playerScore: `${game.getPlayerScore(player)}`
     })
   })
-}
-
-const showHighScores = () => {
-  $(".main_answer-section")
 }
 
 const newRound = () => {
@@ -173,4 +169,4 @@ receiveData();
 $(".p1_guess-button").click(sendGuess);
 $(".p2_guess-button").click(sendGuess);
 $(".main-login-submit").click(showGameBoard);
-// $(".main-highscores-button")
+$(".main_highscores-button").click(getScoreBoardData);

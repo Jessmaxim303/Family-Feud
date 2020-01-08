@@ -57,6 +57,7 @@ const getScoreBoardData = () => {
 const showScoreBoard = (scores) => {
   let highScores = scores.highScores.filter(score => score.appId === "1909knthjm").sort((a, b) => a.score - b.score)
   $(".main_highscores-section").empty();
+  $(".main_highscores-section").append(`HIGH SCORES:`)
   highScores.forEach(score => {
     $(".main_highscores-section").append(`
       <h4>${score.playerName} with ${score.playerScore} points
@@ -131,6 +132,8 @@ const evaluateTurn = (player) => {
     player1Button.prop("disabled", false);
     player2Button.prop("disabled", true);
   }
+  $(".p1_name").toggleClass("active_player");
+  $(".p2_name").toggleClass("active_player");
 }
 
 const getGuess = (guess, player) => {

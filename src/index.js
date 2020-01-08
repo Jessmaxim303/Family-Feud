@@ -175,19 +175,34 @@ const sendGuess = () => {
   }
 };
 
+const resetGame = () => {
+  $(".main_login").show();
+  $(".main_section").hide();
+  resetGuesses();
+  removeXs();
+  receiveData();
+}
+
+let timeLeft = 30;
+var timerBox = $('.js_timer-box');
+var jsTimerText = $('.js_timer-text');
+
 const moneyRound = () => {
-  $('.js_money-header').text('Money Round!')
+  $('.js_money-header').text('Money Round!');
   var timerId = setInterval(countdown, 1000);
 }
-    
-function countdown() {
-      if (timeLeft == 0) {
-      } else {
-        $('.js_timer-box').text(timeLeft)
-        $('.js_timer-text').text(' Seconds Remaining')
-        timeLeft--;
-      }
-    }
+
+const countdown = () => {
+  if(timeLeft === 0) {
+    timerBox.text('');
+    jsTimerText.text('');
+    $('.js_money-header').empty();
+  } else {
+    timerBox.text(timeLeft);
+    jsTimerText.text(' Seconds Remaining');
+    timeLeft--;
+  }
+}
 
 receiveData();
 

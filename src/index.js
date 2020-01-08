@@ -187,23 +187,22 @@ const resetGame = () => {
 }
 
 let timeLeft = 30;
-var timerBox = document.querySelector('.js_timer-box');
-var jsTimerText = document.querySelector('.js_timer-text')
+var timerBox = $('.js_timer-box');
+var jsTimerText = $('.js_timer-text');
 
 const moneyRound = () => {
-  console.log('money round')
-  $('.js_money-header').text('Money Round!')
+  $('.js_money-header').text('Money Round!');
   var timerId = setInterval(countdown, 1000);
 }
 
 const countdown = () => {
-  if (timeLeft === 0) {
-    timerBox.innerHTML = '';
-    jsTimerText.innerHTML = '';
+  if(timeLeft === 0) {
+    timerBox.text('');
+    jsTimerText.text('');
     $('.js_money-header').empty();
   } else {
-    timerBox.innerHTML = timeLeft;
-    jsTimerText.innerHTML = ' Seconds Remaining'
+    timerBox.text(timeLeft);
+    jsTimerText.text(' Seconds Remaining');
     timeLeft--;
   }
 }

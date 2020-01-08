@@ -50,7 +50,6 @@ button {
 	background-size: cover;
 	width: 210px;
 	height: 50px;
-	margin: auto;
 	border: none;
 }
 
@@ -230,9 +229,14 @@ ul {
 	animation: flip_answer 1s linear both;
 }
 
+.active_player {
+	border: 4px solid #97ce4c;
+	padding: 10px;
+}
+
 @keyframes flip_answer {
-  0% {
-    transform: scaleY(0.50) rotate3d(-1, 1, 0, 0);
+	0% {
+		transform: scaleY(0.50) rotate3d(-1, 1, 0, 0);
 		text-indent: 99999px;
   }
 	25% {

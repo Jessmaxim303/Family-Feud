@@ -57,10 +57,13 @@ const getScoreBoardData = () => {
 const showScoreBoard = (scores) => {
   let highScores = scores.highScores.filter(score => score.appId === "1909knthjm").sort((a, b) => a.score - b.score)
   $(".main_highscores-section").empty();
-  $(".main_highscores-section").append(`HIGH SCORES:`)
+  $(".main_highscores-section").append(`HIGH SCORES:`);
+  $(".main_highscores-section").removeClass("hidden");
+  let num = 0;
   highScores.forEach(score => {
+    num++;
     $(".main_highscores-section").append(`
-      <h4>${score.playerName} with ${score.playerScore} points
+      <h4>#${num}. ${score.playerName} with ${score.playerScore} points
     `)
   })
 }
@@ -79,15 +82,15 @@ const postWinner = (player) => {
 
 const newRound = () => {
   game.roundCount++;
-  console.log(game.roundCount)
   if (game.roundCount === 3) {
-    moneyRound()
+    moneyRound();
   }
-  let answerSection = $(".main_answer-section")
+  let answerSection = $(".main_answer-section");
   answerSection.empty();
   $(".main_question-section").empty();
-  console.log(round.survey);
   if(round.survey.length <= 0) {
+    $(".reset-button").removeClass("hidden");
+    $(".main_highscores-button").removeClass("hidden");
     if(game.player1.score > game.player2.score) {
       $(".main_question-section").text(`Game Over, ${$(".main_player1-log").val()} wins with ${game.player1.score} points`);
       postWinner("player1");
@@ -156,7 +159,7 @@ const getGuess = (guess, player) => {
   if(round.correctGuesses >= 6 ||
     game.player1.incorrectGuessCount >= 3 &&
     game.player2.incorrectGuessCount >= 3) {
-      setTimeout(newRound, 1500);
+      setTimeout(newRound, 1200);
   }
 };
 
@@ -175,6 +178,14 @@ const sendGuess = () => {
   }
 };
 
+const resetGame = () => {
+  $(".main_login").show();
+  $(".main_section").hide();
+  resetGuesses();
+  removeXs();
+  receiveData();
+}
+
 let timeLeft = 30;
 var timerBox = document.querySelector('.js_timer-box');
 var jsTimerText = document.querySelector('.js_timer-text')
@@ -184,7 +195,7 @@ const moneyRound = () => {
   $('.js_money-header').text('Money Round!')
   var timerId = setInterval(countdown, 1000);
 }
-    
+
 function countdown() {
       if (timeLeft == 0) {
       } else {
@@ -194,11 +205,11 @@ function countdown() {
       }
     }
 
-// moneyRound()
+
 receiveData();
 
 $(".p1_guess-button").click(sendGuess);
 $(".p2_guess-button").click(sendGuess);
 $(".main-login-submit").click(showGameBoard);
 $(".main_highscores-button").click(getScoreBoardData);
-
+$(".reset-button").click(resetGame);

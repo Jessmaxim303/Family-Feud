@@ -2,16 +2,17 @@ class FastMoney extends Round {
   constructor(survey, player1, player2) {
     super(survey, player1, player2)
     this.timer = number ;
-    this.multiplier = number; // 1 - 5
+    this.multiplier = number;
   }
 
-    startRound() { // starts timer setsMultiplier()
+    startRound() { 
 
   }
 
   setsMultiplier() {
 
   }
+
 }
 
 

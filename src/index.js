@@ -10,6 +10,7 @@ $(".main_section").hide();
 
 let round;
 let game;
+let timeLeft = 30;
 
 const showGameBoard = () => {
   if ($(".main_player1-log").val() && $(".main_player2-log").val()) {
@@ -79,7 +80,6 @@ const postWinner = (player) => {
 
 const newRound = () => {
   game.roundCount++;
-  console.log(game.roundCount)
   if (game.roundCount === 3) {
     moneyRound()
   }
@@ -175,12 +175,7 @@ const sendGuess = () => {
   }
 };
 
-let timeLeft = 30;
-var timerBox = document.querySelector('.js_timer-box');
-var jsTimerText = document.querySelector('.js_timer-text')
-
 const moneyRound = () => {
-  console.log('money round')
   $('.js_money-header').text('Money Round!')
   var timerId = setInterval(countdown, 1000);
 }
@@ -188,13 +183,12 @@ const moneyRound = () => {
 function countdown() {
       if (timeLeft == 0) {
       } else {
-        timerBox.innerHTML = timeLeft;
-        jsTimerText.innerHTML = ' Seconds Remaining'
+        $('.js_timer-box').text(timeLeft)
+        $('.js_timer-text').text(' Seconds Remaining')
         timeLeft--;
       }
     }
 
-// moneyRound()
 receiveData();
 
 $(".p1_guess-button").click(sendGuess);

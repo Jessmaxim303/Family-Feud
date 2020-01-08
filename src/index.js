@@ -55,8 +55,14 @@ const getScoreBoardData = () => {
 }
 
 const showScoreBoard = (scores) => {
-  let highScores = scores.highScore.find(score => score.appId === "1909knthjm");
-  console.log(highScores);
+  let highScores = scores.highScores.filter(score => score.appId === "1909knthjm").sort((a, b) => a.score - b.score)
+  $(".main_highscores-section").empty();
+  $(".main_highscores-section").append(`HIGH SCORES:`)
+  highScores.forEach(score => {
+    $(".main_highscores-section").append(`
+      <h4>${score.playerName} with ${score.playerScore} points
+    `)
+  })
 }
 
 const postWinner = (player) => {
@@ -86,7 +92,7 @@ const newRound = () => {
       $(".main_question-section").text(`Game Over, ${$(".main_player1-log").val()} wins with ${game.player1.score} points`);
       postWinner("player1");
     } else {
-      answerSection.text(`Game Over, ${$(".main_player2-log").val()} wins with ${game.player2.score} points`);
+      answerSection.text(`GAME OVER, ${$(".main_player2-log").val()} wins with ${game.player2.score} points.`);
       postWinner("player2");
     }
   }
@@ -130,6 +136,8 @@ const evaluateTurn = (player) => {
     player1Button.prop("disabled", false);
     player2Button.prop("disabled", true);
   }
+  $(".p1_name").toggleClass("active_player");
+  $(".p2_name").toggleClass("active_player");
 }
 
 const getGuess = (guess, player) => {
@@ -148,7 +156,7 @@ const getGuess = (guess, player) => {
   if(round.correctGuesses >= 6 ||
     game.player1.incorrectGuessCount >= 3 &&
     game.player2.incorrectGuessCount >= 3) {
-      newRound();
+      setTimeout(newRound, 1500);
   }
 };
 
@@ -192,3 +200,5 @@ receiveData();
 $(".p1_guess-button").click(sendGuess);
 $(".p2_guess-button").click(sendGuess);
 $(".main-login-submit").click(showGameBoard);
+$(".main_highscores-button").click(getScoreBoardData);
+

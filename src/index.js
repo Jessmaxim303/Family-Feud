@@ -196,14 +196,17 @@ const moneyRound = () => {
   var timerId = setInterval(countdown, 1000);
 }
 
-function countdown() {
-      if (timeLeft == 0) {
-      } else {
-        timerBox.innerHTML = timeLeft;
-        jsTimerText.innerHTML = ' Seconds Remaining'
-        timeLeft--;
-      }
-    }
+const countdown = () => {
+  if (timeLeft === 0) {
+    timerBox.innerHTML = '';
+    jsTimerText.innerHTML = '';
+    $('.js_money-header').empty();
+  } else {
+    timerBox.innerHTML = timeLeft;
+    jsTimerText.innerHTML = ' Seconds Remaining'
+    timeLeft--;
+  }
+}
 
 
 receiveData();
@@ -212,4 +215,4 @@ $(".p1_guess-button").click(sendGuess);
 $(".p2_guess-button").click(sendGuess);
 $(".main-login-submit").click(showGameBoard);
 $(".main_highscores-button").click(getScoreBoardData);
-$(".reset-button").click(resetGame);
+$(".main_reset-button").click(resetGame);

@@ -60,11 +60,10 @@ describe('Game', () => {
       expect(global.localStorage.setItem).to.have.been.called(1);
   });
 
-  describe('createPlayers', () => {
+  describe('should create new plaeyer', () => {
     it('should be a function', () => {
       const game = new Game();
-
-      expect(game.createPlayers).to.be.a('function');
+      expect(game.createPlayers()).to.equal('function');
     })
   })
 

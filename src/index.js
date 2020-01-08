@@ -10,6 +10,7 @@ $(".main_section").hide();
 
 let round;
 let game;
+let timeLeft = 30;
 
 const showGameBoard = () => {
   if ($(".main_player1-log").val() && $(".main_player2-log").val()) {
@@ -178,20 +179,11 @@ const sendGuess = () => {
   }
 };
 
-const resetGame = () => {
-  $(".main_login").show();
-  $(".main_section").hide();
-  resetGuesses();
-  removeXs();
-  receiveData();
-}
-
 let timeLeft = 30;
 var timerBox = document.querySelector('.js_timer-box');
 var jsTimerText = document.querySelector('.js_timer-text')
 
 const moneyRound = () => {
-  console.log('money round')
   $('.js_money-header').text('Money Round!')
   var timerId = setInterval(countdown, 1000);
 }
@@ -207,7 +199,6 @@ const countdown = () => {
     timeLeft--;
   }
 }
-
 
 receiveData();
 

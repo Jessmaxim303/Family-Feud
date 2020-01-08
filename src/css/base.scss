@@ -5,10 +5,6 @@
 	margin: 0;
 }
 
-* {
-	/*border: 1px solid red;*/
-}
-
 button {
 	cursor: pointer;
 }
@@ -45,8 +41,28 @@ button {
 .main_section {
 	background: linear-gradient( rgba(255, 255, 255, .5), rgba(255, 255, 255, 0.5)), url(../images/8bit.jpg) no-repeat center bottom;
   background-size: cover;
-	height: 100vh;
+	height: 102vh;
 	padding: 2%;
+	width: 100%;
+}
+
+.main_highscores-section {
+	background-color: #f0e14a;
+	border: 3px solid #00008b;
+	border-radius: 10px;
+	box-shadow: 4px 4px 4px grey;
+	font-family: $primary_gameboard_font;
+	padding: 10px;
+	width: 80%;
+}
+
+.main_highscores-section h4 {
+	margin: 5px;
+}
+
+.end_button-div {
+	display: flex;
+	justify-content: space-around;
 }
 
 .main_highscores-button {
@@ -68,6 +84,12 @@ button {
 .main_end-buttons {
 	display: flex;
 	justify-content: space-around;
+}
+
+.reset-button {
+	background: url(../images/highscore_btn.png) no-repeat center;
+	width: 210px;
+	height: 50px;
 }
 
 .answer-score {

@@ -152,7 +152,7 @@ const getGuess = (guess, player) => {
   if(round.correctGuesses >= 6 ||
     game.player1.incorrectGuessCount >= 3 &&
     game.player2.incorrectGuessCount >= 3) {
-      newRound();
+      setTimeout(newRound, 1500);
   }
 };
 
@@ -178,3 +178,4 @@ $(".p1_guess-button").click(sendGuess);
 $(".p2_guess-button").click(sendGuess);
 $(".main-login-submit").click(showGameBoard);
 $(".main_highscores-button").click(getScoreBoardData);
+

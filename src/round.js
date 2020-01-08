@@ -34,10 +34,6 @@ class Round {
       x.id !== this.id);
       console.log(this.survey);
   }
-
-  returnFeedback() {
-
-  }
 }
 
 export default Round;

@@ -10,6 +10,7 @@ $(".main_section").hide();
 
 let round;
 let game;
+let timeLeft = 30;
 
 const showGameBoard = () => {
   if ($(".main_player1-log").val() && $(".main_player2-log").val()) {
@@ -57,13 +58,10 @@ const getScoreBoardData = () => {
 const showScoreBoard = (scores) => {
   let highScores = scores.highScores.filter(score => score.appId === "1909knthjm").sort((a, b) => a.score - b.score)
   $(".main_highscores-section").empty();
-  $(".main_highscores-section").append(`HIGH SCORES:`);
-  $(".main_highscores-section").removeClass("hidden");
-  let num = 0;
+  $(".main_highscores-section").append(`HIGH SCORES:`)
   highScores.forEach(score => {
-    num++;
     $(".main_highscores-section").append(`
-      <h4>#${num}. ${score.playerName} with ${score.playerScore} points
+      <h4>${score.playerName} with ${score.playerScore} points
     `)
   })
 }
@@ -83,14 +81,13 @@ const postWinner = (player) => {
 const newRound = () => {
   game.roundCount++;
   if (game.roundCount === 3) {
-    moneyRound();
+    moneyRound()
   }
-  let answerSection = $(".main_answer-section");
+  let answerSection = $(".main_answer-section")
   answerSection.empty();
   $(".main_question-section").empty();
+  console.log(round.survey);
   if(round.survey.length <= 0) {
-    $(".reset-button").removeClass("hidden");
-    $(".main_highscores-button").removeClass("hidden");
     if(game.player1.score > game.player2.score) {
       $(".main_question-section").text(`Game Over, ${$(".main_player1-log").val()} wins with ${game.player1.score} points`);
       postWinner("player1");
@@ -159,7 +156,7 @@ const getGuess = (guess, player) => {
   if(round.correctGuesses >= 6 ||
     game.player1.incorrectGuessCount >= 3 &&
     game.player2.incorrectGuessCount >= 3) {
-      setTimeout(newRound, 1200);
+      setTimeout(newRound, 1500);
   }
 };
 
@@ -207,11 +204,10 @@ const countdown = () => {
   }
 }
 
-
 receiveData();
 
 $(".p1_guess-button").click(sendGuess);
 $(".p2_guess-button").click(sendGuess);
 $(".main-login-submit").click(showGameBoard);
 $(".main_highscores-button").click(getScoreBoardData);
-$(".main_reset-button").click(resetGame);
+

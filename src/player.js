@@ -9,10 +9,6 @@ class Player {
   updateScore(respondents) {
     this.score += respondents;
   }
-
-  endGame() {
-    
-  }
 }
 
 export default Player;

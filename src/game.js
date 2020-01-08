@@ -46,7 +46,6 @@ class Game {
     let highScore = JSON.stringify(this.scoreboard );
     global.localStorage.setItem('high Score', highScore);
   }
-
 }
 
 

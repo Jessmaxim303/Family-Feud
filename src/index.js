@@ -80,14 +80,16 @@ const postWinner = (player) => {
 
 const newRound = () => {
   game.roundCount++;
-  if (game.roundCount === 3) {
-    moneyRound()
+  if(game.roundCount === 3) {
+    moneyRound();
   }
   let answerSection = $(".main_answer-section")
   answerSection.empty();
   $(".main_question-section").empty();
   console.log(round.survey);
   if(round.survey.length <= 0) {
+    $(".main_reset-button").removeClass("hidden");
+    $(".main_highscores-button").removeClass("hidden");
     if(game.player1.score > game.player2.score) {
       $(".main_question-section").text(`Game Over, ${$(".main_player1-log").val()} wins with ${game.player1.score} points`);
       postWinner("player1");

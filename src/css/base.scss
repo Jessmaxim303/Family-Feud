@@ -65,9 +65,15 @@ button {
 	padding: 50px;
 }
 
+.main_reset-button {
+	background: url(../images/reset_button.png) no-repeat center/ 50%;
+	border: none;
+	width: 210px;
+	height: 50px;
 .main_end-buttons {
 	display: flex;
 	justify-content: space-around;
+
 }
 
 .answer-score {
